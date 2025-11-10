@@ -1,0 +1,11 @@
+# ~/.opentofu.rc
+provider_installation {
+  network_mirror {
+    url = "https://registry.terraform.yandexcloud.net"
+    include = ["registry.terraform.io/*/*"]
+  }
+
+  direct {
+    exclude = ["registry.terraform.io/*/*"]
+  }
+}

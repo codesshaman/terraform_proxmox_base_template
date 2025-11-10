@@ -3,8 +3,8 @@
 terraform {
   required_providers {
     proxmox = {
-      source  = "telmate/proxmox"
-      version = "~> 3.0" # Убедитесь, что используете подходящую версию
+      source = "telmate/proxmox"
+      version = "3.0.2-rc05"
     }
   }
 }
@@ -22,24 +22,24 @@ resource "proxmox_vm_qemu" "vm_from_template" {
   name        = var.vm_name
   target_node = var.proxmox_node_name
   clone       = var.template_name
-  full_clone  = true # Создать полную копию шаблона (не Linked Clone)
+  full_clone  = var.proxmox_full_clone
 
   # Основные параметры VM
-  cores = 2
-  memory = 2048
+  cores = var.vm_cpu_cores
+  memory = var.vm_ram_memory
 
   # Диски
   disk {
-    slot    = 0
-    size    = "20G"
-    type    = "scsi"
-    storage = "local-lvm" # Укажите подходящее хранилище
+    slot    = var.vm_disk_slot
+    size    = var.vm_disk_size
+    type    = var.vm_disk_type
+    storage = var.vm_storage
   }
 
   # Сеть
   network {
-    model  = "virtio"
-    bridge = "vmbr0" # Укажите подходящий мост
+    model  = var.vm_network_model
+    bridge = var.vm_network_bridge
   }
 
   # SSH-ключ для доступа (опционально)

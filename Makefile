@@ -27,6 +27,7 @@ help:
 	@echo -e "$(OK)==== Все команды для конфигурации ${name} ===="
 	@echo -e "$(WARN)- make				: Launch configuration"
 	@echo -e "$(WARN)- make init			: Init configuration"
+	@echo -e "$(WARN)- make mirrors			: Set mirrors"
 	@echo -e "$(WARN)- make git			: Set git user"
 	@echo -e "$(WARN)- make plan			: Show intallation plan"
 	@echo -e "$(WARN)- make push			: Push last changes to git"
@@ -38,6 +39,9 @@ help:
 
 init:
 	@tofu init
+
+mirrors:
+	@bash scripts/mirrors.sh
 
 plan:
 	@tofu plan
