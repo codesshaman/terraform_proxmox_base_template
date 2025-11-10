@@ -1,0 +1,8 @@
+proxmox_api_url = "${PM_API_URL}"
+proxmox_user = "${PM_USER}"
+proxmox_tls_insecure = "${PM_TLS_INSECURE}"
+proxmox_api_token_id = "${PM_TOKEN_ID}"
+proxmox_api_token_secret = "${PM_TOKEN_SECRET}"
+proxmox_node_name = "${PM_TOKEN_SECRET}"
+template_name = "${VM_TEMPLATE}"
+vm_name = "${VM_NAME}"
