@@ -32,7 +32,13 @@ Change variables to realy.
 
 If you use different plugins directory, choose PLUGINS_DIR variable.
 
-### Step 3. Launch VM creation
+### Step 3. Init variables
+
+```
+make vars
+```
+
+### Step 4. Launch VM creation
 
 ```
 make init
