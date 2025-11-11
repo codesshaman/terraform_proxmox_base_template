@@ -32,7 +32,10 @@ resource "proxmox_vm_qemu" "vm_from_template" {
   }
 
   memory = var.vm_ram_memory
-
+  bios            = "seabios"
+  scsihw          = "virtio-scsi-single"
+  boot            = "order=scsi0;net0"
+  bootdisk        = "scsi0"
   # Диски
   disk {
     type    = "disk"

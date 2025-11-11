@@ -14,7 +14,7 @@ proxmox_api_token_secret = "${PM_TOKEN_SECRET}"
 proxmox_node_name = "${NODE_NAME}"
 template_name = "${VM_TEMPLATE}"
 vm_name = "${VM_NAME}"
-proxmox_full_clone = "${FULL_CLONE}"
+proxmox_full_clone = ${FULL_CLONE}
 
 # VM hardware
 
