@@ -3,10 +3,12 @@
 terraform {
   required_providers {
     proxmox = {
-      source = "telmate/proxmox"
+      source  = "telmate/proxmox"
       version = "3.0.2-rc05"
     }
   }
+
+  required_version = ">= 1.6"
 }
 
 # Настройка провайдера Proxmox
@@ -25,19 +27,23 @@ resource "proxmox_vm_qemu" "vm_from_template" {
   full_clone  = var.proxmox_full_clone
 
   # Основные параметры VM
-  cores = var.vm_cpu_cores
+  cpu {
+    cores = var.vm_cpu_cores
+  }
+
   memory = var.vm_ram_memory
 
   # Диски
   disk {
-    slot    = var.vm_disk_slot
+    type    = "disk"
+    slot    = var.vm_disk_type
     size    = var.vm_disk_size
-    type    = var.vm_disk_type
     storage = var.vm_storage
   }
 
   # Сеть
   network {
+    id     = 0
     model  = var.vm_network_model
     bridge = var.vm_network_bridge
   }

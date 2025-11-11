@@ -5,6 +5,10 @@ NO_COLOR=\033[0m	# Color Reset
 OK=\033[32;01m		# Green Ok
 ERROR=\033[31;01m	# Error red
 WARN=\033[33;01m	# Warning yellow
+ifneq (,$(wildcard .env))
+    include .env
+    export $(shell sed 's/=.*//' .env)
+endif
 
 all:
 	@printf "$(OK)- Full clean of all images and archives\n"
@@ -27,7 +31,6 @@ help:
 	@echo -e "$(OK)==== Все команды для конфигурации ${name} ===="
 	@echo -e "$(WARN)- make				: Launch configuration"
 	@echo -e "$(WARN)- make init			: Init configuration"
-	@echo -e "$(WARN)- make mirrors			: Set mirrors"
 	@echo -e "$(WARN)- make git			: Set git user"
 	@echo -e "$(WARN)- make plan			: Show intallation plan"
 	@echo -e "$(WARN)- make push			: Push last changes to git"
@@ -38,10 +41,7 @@ help:
 	@echo -e "$(WARN)- make fclean			: Full clean of all images and archives$(NO_COLOR)"
 
 init:
-	@tofu init
-
-mirrors:
-	@bash scripts/mirrors.sh
+	@tofu init -upgrade=false -plugin-dir ${PLUGINS_DIR}
 
 plan:
 	@tofu plan

@@ -20,7 +20,6 @@ proxmox_full_clone = "${FULL_CLONE}"
 
 vm_cpu_cores = ${CPU_CORES}
 vm_ram_memory = ${RAM_MEMORY}
-vm_disk_slot = ${DISK_SLOT_NUM}
 vm_disk_size = "${DISK_SIZE}"
 vm_disk_type = "${DISK_TYPE}"
 vm_storage = "${PM_STORAGE}"
