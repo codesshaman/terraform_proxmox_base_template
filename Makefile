@@ -15,9 +15,9 @@ all:
 	@tofu apply -auto-approve
 
 env:
-	@printf "$(ERROR_COLOR)==== Create environment file for ${name}... ====$(NO_COLOR)\n"
+	@printf "$(ERROR)==== Create environment file for ${name}... ====$(NO_COLOR)\n"
 	@if [ -f .env ]; then \
-		echo "$(ERROR_COLOR).env file already exists!$(NO_COLOR)"; \
+		echo "$(ERROR).env file already exists!$(NO_COLOR)"; \
 	else \
 		cp .env.example .env; \
 		echo "$(GREEN).env file successfully created!$(NO_COLOR)"; \
@@ -59,5 +59,9 @@ unpack:
 wget:
 	@printf "$(OK)- Download vagrantbox\n"
 	@wget https://vagrantcloud.com/ubuntu/boxes/focal64/versions/20240821.0.1/providers/virtualbox/unknown/vagrant.box
+
+clean:
+	@printf "$(ERROR)- Clean configuration$(NO_COLOR)"
+	@bash scripts/clean.sh
 
 .PHONY	: all help push clean fclean
