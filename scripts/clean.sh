@@ -1,21 +1,38 @@
 #!/bin/bash
 
+# Собираем все файлы terraform-provider-proxmox_* в массив
+mapfile -t prov_files < <(ls terraform-provider-proxmox_* 2>/dev/null || true)
 
-# Список файлов для удаления
-files=(
+# Остальные файлы
+other_files=(
     "terraform.tfstate.backup"
     ".terraform.lock.hcl"
     "terraform.tfstate"
 )
 
-echo " "
+echo " Начинаю очистку..."
+echo
 
-# Цикл по списку файлов
-for file in "${files[@]}"; do
+# Удаляем провайдеры
+for file in "${prov_files[@]}"; do
+    rm -f "$file"
+    echo "Удалено: $file"
+done
+
+# Удаляем остальные
+for file in "${other_files[@]}"; do
     if [ -f "$file" ]; then
-        rm "$file"
-        echo "❌ $file is removed"
+        rm -f "$file"
+        echo "Удалено: $file"
     else
-        echo "⚠️ $file not found"
+        echo "Не найдено: $file"
     fi
 done
+
+# Если провайдеров не было — скажем об этом
+if [ ${#prov_files[@]} -eq 0 ]; then
+    echo "Не найдено: terraform-provider-proxmox_*"
+fi
+
+echo
+echo "Очистка завершена!"
