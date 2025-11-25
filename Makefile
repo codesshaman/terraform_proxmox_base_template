@@ -49,6 +49,7 @@ help:
 	@echo -e "$(WARN)- make create_qa		: Create qa workspace"
 	@echo -e "$(WARN)- make create_staging		: Create staging workspace"
 	@echo -e "$(WARN)- make create_production	: Create production workspace"
+	@echo -e "$(WARN)- make destroy			: Destroy all resources"
 	@echo -e "$(WARN)- make init			: Init configuration"
 	@echo -e "$(WARN)- make git			: Set git user"
 	@echo -e "$(WARN)- make plan			: Show intallation plan"
@@ -71,6 +72,10 @@ create_staging:
 
 create_production:
 	@terraform workspace new production
+
+destroy:
+	@printf "$(OK)- terraform destroy\n"
+	@terraform destroy -auto-approve
 
 init:
 	@terraform init -upgrade=false -plugin-dir $(PLUGINS_DIR)
