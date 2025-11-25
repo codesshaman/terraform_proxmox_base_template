@@ -27,8 +27,8 @@ DOWNLOAD_URL = https://github.com/Telmate/terraform-provider-proxmox/releases/do
 
 all:
 	@printf "$(OK)- terraform apply\n"
-# 	@terraform apply -auto-approve
-	@terraform apply
+	@terraform apply -auto-approve
+# 	@terraform apply
 
 env:
 	@printf "$(ERROR)==== Create environment file for ${name}... ====$(NO_COLOR)\n"
