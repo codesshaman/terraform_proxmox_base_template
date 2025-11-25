@@ -18,10 +18,10 @@ endif
 # Provider variables
 
 PLUGINS_DIR = $(HOME)/.terraform.d/plugins/
-PLUGIN_DIR = $(HOME)/.terraform.d/plugins/registry.terraform.io/telmate/proxmox/$(VERSION)/linux_amd64
+PLUGIN_DIR = $(HOME)/.terraform.d/plugins/registry.terraform.io/bpg/proxmox/$(VERSION)/linux_amd64
 PROVIDER_FILE = terraform-provider-proxmox_v$(VERSION)
 PROVIDER_ARCHIVE = terraform-provider-proxmox_$(VERSION)_linux_amd64.zip
-DOWNLOAD_URL = https://github.com/Telmate/terraform-provider-proxmox/releases/download/v$(VERSION)/terraform-provider-proxmox_$(VERSION)_linux_amd64.zip
+DOWNLOAD_URL = https://github.com/bpg/terraform-provider-proxmox/releases/download/v$(VERSION)/terraform-provider-proxmox_$(VERSION)_linux_amd64.zip
 
 # Makefile targets
 
@@ -49,6 +49,7 @@ help:
 	@echo -e "$(WARN)- make create_qa		: Create qa workspace"
 	@echo -e "$(WARN)- make create_staging		: Create staging workspace"
 	@echo -e "$(WARN)- make create_production	: Create production workspace"
+	@echo -e "$(WARN)- make destroy			: Destroy all resources"
 	@echo -e "$(WARN)- make init			: Init configuration"
 	@echo -e "$(WARN)- make git			: Set git user"
 	@echo -e "$(WARN)- make plan			: Show intallation plan"
@@ -71,6 +72,10 @@ create_staging:
 
 create_production:
 	@terraform workspace new production
+
+destroy:
+	@printf "$(OK)- terraform destroy\n"
+	@terraform destroy -auto-approve
 
 init:
 	@terraform init -upgrade=false -plugin-dir $(PLUGINS_DIR)

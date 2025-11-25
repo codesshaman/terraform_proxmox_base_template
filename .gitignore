@@ -3,5 +3,6 @@ terraform.tfstate.backup
 .terraform.lock.hcl
 terraform.tfstate
 terraform.tfvars
+CHANGELOG.md
 .terraform/
 .env
