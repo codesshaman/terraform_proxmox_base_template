@@ -1,0 +1,15 @@
+# Proxmox parameters
+pm_first_node_name="${PM_FIRST_NODE_NAME}"
+pm_second_node_name="${PM_SECOND_NODE_NAME}"
+pm_first_node_user = "${PM_FIRST_NODE_USER}"
+pm_second_node_user = "${PM_SECOND_NODE_USER}"
+pm_first_node_api_url = "${PM_FIRST_API_URL}"
+pm_second_node_api_url = "${PM_SECOND_API_URL}"
+proxmox_tls_insecure = "${PM_TLS_INSECURE}"
+
+# Proxmox secrets
+
+pm_first_node_api_token_id = "${PM_FIRST_NODE_TOKEN_ID}"
+pm_second_node_api_token_id = "${PM_SECOND_NODE_TOKEN_ID}"
+pm_first_node_api_token_secret = "${PM_FIRST_NODE_TOKEN_SECRET}"
+pm_second_node_api_token_secret = "${PM_SECOND_NODE_TOKEN_SECRET}"

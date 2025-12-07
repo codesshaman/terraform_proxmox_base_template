@@ -4,5 +4,5 @@ terraform.tfstate.backup
 terraform.tfstate
 terraform.tfvars
 CHANGELOG.md
-.terraform/
+.terraform
 .env

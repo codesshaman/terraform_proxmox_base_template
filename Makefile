@@ -27,8 +27,8 @@ DOWNLOAD_URL = https://github.com/bpg/terraform-provider-proxmox/releases/downlo
 
 all:
 	@printf "$(OK)- terraform apply\n"
-	@terraform apply -auto-approve
-# 	@terraform apply
+	@bash -c "cd main && terraform apply"
+# 	@bash -c "cd main && terraform apply -auto-approve"
 
 env:
 	@printf "$(ERROR)==== Create environment file for ${name}... ====$(NO_COLOR)\n"
@@ -78,10 +78,10 @@ destroy:
 	@terraform destroy -auto-approve
 
 init:
-	@terraform init -upgrade=false -plugin-dir $(PLUGINS_DIR)
+	@bash -c "cd main && terraform init -upgrade=false -plugin-dir $(PLUGINS_DIR)"
 
 plan:
-	@terraform plan
+	@bash -c "cd main && terraform plan"
 
 provider:
 	@if [ ! -f "$(PROVIDER_FILE)" ]; then \
@@ -109,7 +109,7 @@ select_production:
 	@terraform workspace select production
 
 vars:
-	@set -a && . ./.env && envsubst < terraform.tfvars.template > terraform.tfvars
+	@set -a && . ./.env && envsubst < ./main/terraform.tfvars.template > ./main/terraform.tfvars
 
 wget:
 	@wget "$(DOWNLOAD_URL)"
