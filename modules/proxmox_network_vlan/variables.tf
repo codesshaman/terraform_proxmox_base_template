@@ -1,4 +1,4 @@
-# variables.tf
+# modules/proxmox_network_vlan/variables.tf
 
 variable "node_name" {
     type    = string

@@ -1,4 +1,4 @@
-# resources.tf
+# modules/proxmox_network_vlan/resources.tf
 
 terraform {
   required_providers {
