@@ -4,7 +4,7 @@ module "proxmox_network_bridge" {
   source = "../../modules/proxmox_network_bridge"
 
   providers = {
-    proxmox = proxmox
+    proxmox = proxmox.second
   }
 
   node_name       = var.pm_node_name
@@ -19,7 +19,7 @@ module "proxmox_network_vlan" {
   source = "../../modules/proxmox_network_vlan"
 
   providers = {
-    proxmox = proxmox
+    proxmox = proxmox.second
   }
 
   base_bridge     = "vmbr10101"

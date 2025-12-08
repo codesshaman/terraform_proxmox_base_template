@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Целевая директория
-TARGET_DIR="./main"
+TARGET_DIR="."
 
 # Проверяем, существует ли директория
 if [ ! -d "$TARGET_DIR" ]; then

@@ -1,0 +1,13 @@
+# Proxmox parameters
+
+pm_node_name="${PM_NODE_NAME}"
+pm_node_user = "${PM_NODE_USER}"
+pm_node_api_url = "${PM_API_URL}"
+pm_node_aliasl = "${PM_NODE_ALIAS}"
+pm_node_comment = "${PM_NODE_COMMENT}"
+proxmox_tls_insecure = "${PM_TLS_INSECURE}"
+
+# Proxmox secrets
+
+pm_node_api_token_id = "${PM_NODE_TOKEN_ID}"
+pm_node_api_token_secret = "${PM_NODE_TOKEN_SECRET}"
