@@ -25,6 +25,12 @@ variable "pm_node_alias" {
   default     = "default"
 }
 
+variable "pm_node_user" {
+  description = "User for Proxmox provider"
+  type        = string
+  default     = "root@pam"
+}
+
 variable "pm_node_comment" {
   description = "Comment for Proxmox provider"
   type        = string
