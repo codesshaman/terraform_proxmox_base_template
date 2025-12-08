@@ -12,9 +12,8 @@ terraform {
   required_version = ">= 1.6"
 }
 
-# Proxmox node settings
+
 provider "proxmox" {
-  alias     = var.pm_node_alias
   endpoint  = var.pm_node_api_url
   api_token = "${var.pm_node_api_token_id}=${var.pm_node_api_token_secret}"
   insecure  = var.proxmox_tls_insecure
