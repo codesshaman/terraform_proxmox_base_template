@@ -69,6 +69,6 @@ vars:
 
 clean:
 	@printf "$(ERROR)- Clean configuration$(NO_COLOR)"
-	@bash ../../scripts/clean.sh
+	@bash ./clean.sh
 
 .PHONY	: all help push clean fclean
