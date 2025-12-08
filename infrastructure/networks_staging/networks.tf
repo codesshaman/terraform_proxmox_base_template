@@ -1,21 +1,13 @@
 # networks.tf
 
-terraform {
-  required_providers {
-    proxmox = {
-      source = "bpg/proxmox"
-    }
-  }
-}
-
 module "proxmox_network_bridge" {
-  source = "../modules/proxmox_network_bridge"
+  source = "../../modules/proxmox_network_bridge"
 
   providers = {
     proxmox = proxmox.second
   }
 
-  node_name       = var.pm_second_node_name
+  node_name       = var.pm_node_name
   vlan_id         = 1010
   interface       = "vmbr0"
   bridge_name     = "vmbr10101"
@@ -24,7 +16,7 @@ module "proxmox_network_bridge" {
 }
 
 module "proxmox_network_vlan" {
-  source = "../modules/proxmox_network_vlan"
+  source = "../../modules/proxmox_network_vlan"
 
   providers = {
     proxmox = proxmox.second
@@ -32,7 +24,7 @@ module "proxmox_network_vlan" {
 
   base_bridge     = "vmbr10101"
   vlan_name       = "vlan180"
-  node_name       = var.pm_second_node_name
+  node_name       = var.pm_node_name
   vlan_id         = 180
   comment         = "VLAN network created by Terraform"
 }
