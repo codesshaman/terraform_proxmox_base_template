@@ -12,7 +12,7 @@ locals {
   vlan_interface = "${var.interface}.${var.vlan_id}"
 }
 
-resource "proxmox_virtual_environment_network_linux_bridge" "bridge_10101" {
+resource "proxmox_virtual_environment_network_linux_bridge" "bridge" {
 
   node_name = var.node_name
   name      = var.bridge_name

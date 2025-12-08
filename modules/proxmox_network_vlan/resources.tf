@@ -22,4 +22,3 @@ resource "proxmox_virtual_environment_network_linux_vlan" "vlan" {
   name      = "${var.base_bridge}.${var.vlan_id}"
   comment   = var.comment
 }
-
