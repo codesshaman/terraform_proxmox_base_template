@@ -6,3 +6,4 @@ terraform.tfvars
 CHANGELOG.md
 .terraform
 .env
+.ssh
