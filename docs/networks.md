@@ -19,7 +19,7 @@
 ### VLAN example
 
 ```
-vmbr0          (Bridge) 
-  ├─ VLAN 101  (трафик для отдела бухгалтерии)
-  └─ VLAN 102  (трафик для отдела продаж)
+vmbr0 (Bridge) 
+  ├─ VLAN 101
+  └─ VLAN 102
 ```
