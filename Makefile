@@ -48,6 +48,9 @@ provider:
 push:
 	@bash scripts/push.sh
 
+ssh:
+	@bash scripts/ssh.sh
+
 wget:
 	@wget "$(DOWNLOAD_URL)"
 	@if [ $$? -ne 0 ]; then \
